@@ -412,8 +412,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1779568486}
   - component: {fileID: 1779568485}
-  - component: {fileID: 1779568484}
   - component: {fileID: 1779568487}
+  - component: {fileID: 1779568484}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -436,6 +436,11 @@ MonoBehaviour:
   horizontalInputName: Horizontal
   verticalInputName: Vertical
   movementSpeed: 6
+  dashCooldown: 0.5
+  dash: 0
+  dashSpeed: 6
+  maxDashCooldown: 0.5
+  dashStopMultiplier: 10
 --- !u!143 &1779568485
 CharacterController:
   m_ObjectHideFlags: 0
@@ -481,8 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5917225664d83834087477dd651c98bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDirection: {x: 0, y: 0, z: 0}
+  drag: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}
+  dashDistance: 4
   controller: {fileID: 0}
-  maxDashTime: 0
-  dashSpeed: 0
-  dashStoppingSpeed: 0
