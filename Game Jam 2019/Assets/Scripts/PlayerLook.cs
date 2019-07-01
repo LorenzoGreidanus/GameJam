@@ -40,15 +40,15 @@ public class PlayerLook : MonoBehaviour
 
         if (xAxisClamp > maxRotationUp)
         {
-            xAxisClamp = 90.0f;
+            xAxisClamp = maxRotationUp;
             mouseY = 0.0f;
             ClampXAxisRotation(270.0f);
         }
         else if (xAxisClamp < maxRotationDown)
         {
-            xAxisClamp = -90.0f;
+            xAxisClamp = maxRotationDown;
             mouseY = 0.0f;
-            ClampXAxisRotation(90.0f);
+            ClampXAxisRotation(maxRotationUp);
         }
 
         transform.Rotate(Vector3.left * mouseY);
