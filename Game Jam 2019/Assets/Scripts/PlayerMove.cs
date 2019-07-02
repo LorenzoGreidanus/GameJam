@@ -6,14 +6,12 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private string horizontalInputName;
     [SerializeField] private string verticalInputName;
+    [SerializeField] private float movementSpeed;
+    [SerializeField] private float dashCooldown;
     [SerializeField] private float dash;
     [SerializeField] private float dashSpeed;
     [SerializeField] private float maxDashCooldown;
     [SerializeField] private float dashStopMultiplier;
-    [SerializeField] private float movementSpeed;
-
-    public float dashCooldown;
-    public float dashStamina;
 
     private CharacterController charController;
 
@@ -41,11 +39,10 @@ public class PlayerMove : MonoBehaviour
 
     private void Dash()
     {
-        if (Input.GetButton("Dash") && dashCooldown <= 0 && gameObject.GetComponent<PlayerStats>().stamina != 0 && gameObject.GetComponent<PlayerStats>().staminaPenalty == false)
+        if (Input.GetButton("Dash") && dashCooldown <= 0)
         {
             dash *= dashSpeed;
             dashCooldown = maxDashCooldown;
-            gameObject.GetComponent<PlayerStats>().stamina -= dashStamina;
         }
 
         dashCooldown -= Time.deltaTime;
