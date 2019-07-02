@@ -8,7 +8,6 @@ public class PlayerStats : MonoBehaviour
     public float health;
     public float stamina;
     public bool staminaPenalty;
-    public float staminaDebuff;
 
     public Image healthSlider;
     public Image staminaSlider;
@@ -32,7 +31,7 @@ public class PlayerStats : MonoBehaviour
         {
             staminaPenalty = true;
         }
-        else if (stamina > staminaDebuff)
+        else if (stamina > 60)
         {
             staminaPenalty = false;
         }
